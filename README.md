@@ -153,12 +153,13 @@ backup = backup
 
 #### 5、配置cfg/yolov3-voc.cfg
 
-	batch, sub按需修改
-	一共三个YOLO层，均需要修改：
+	[net]层下的batch, subdivisions按需修改
+	一共三个[yolo]层，均需要修改：
 	classes=1
-	filters=18		3*(1+1+4)=18
+    每个[yolo]层上面的[convolutional]层中的filters值需要修改
+	filters=18		3*(1+5)=18
 	
-	# filters=(classes + coords + 1)*<number of mask>
+	# filters=(num/3)*(classes+5) num是yolo层中的num值
 
 #### 6、make编译
 
